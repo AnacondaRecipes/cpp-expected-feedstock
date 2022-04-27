@@ -7,12 +7,18 @@ if errorlevel 1 exit 1
 
 :: Generate the build files.
 cmake .. -G"Ninja" %CMAKE_ARGS% ^
-    -DEXPECTED_ENABLE_TESTS=OFF ^
     -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DCMAKE_BUILD_TYPE=Release
 
+:: Build.
+ninja
+if errorlevel 1 exit 1
 
-:: Build and install.
+:: Run tests.
+.\tests.exe
+if errorlevel 1 exit 1
+
+:: Install.
 ninja install
 if errorlevel 1 exit 1
