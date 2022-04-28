@@ -22,7 +22,6 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake
-    - git
     - ninja
     - m2-patch  # [win]
     - patch  # [not win]
