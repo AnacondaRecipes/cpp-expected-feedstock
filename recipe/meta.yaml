@@ -6,8 +6,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/TartanLlama/expected/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 8f5124085a124113e75e3890b4e923e3a4de5b26a973b891b3deb40e19c03cee
+  - url: https://github.com/TartanLlama/expected/archive/refs/tags/v{{ version }}.tar.gz
+    sha256: 8f5124085a124113e75e3890b4e923e3a4de5b26a973b891b3deb40e19c03cee
+    patches:
+    - CMakeLists.txt.patch
+  - git_url: https://github.com/TartanLlama/tl-cmake.git
+    git_rev: 284c6a3
+    git_depth: 1 # (Defaults to -1/not shallow)
+    folder: cmake/tl-cmake/
 
 build:
   number: 0
@@ -18,6 +24,8 @@ requirements:
     - cmake
     - git
     - ninja
+    - m2-patch  # [win]
+    - patch  # [not win]
 
 test:
   commands:
