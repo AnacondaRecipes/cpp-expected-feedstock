@@ -1,0 +1,4 @@
+[submodule "getopt-win32-feedstock"]
+	path = getopt-win32-feedstock
+	url = ../getopt-win32-feedstock
+	branch = main
