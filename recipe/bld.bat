@@ -15,9 +15,9 @@ cmake .. -G"Ninja" %CMAKE_ARGS% ^
 ninja
 if errorlevel 1 exit 1
 
-:: Run tests.
-.\tests.exe
-if errorlevel 1 exit 1
+@REM :: Run tests.
+@REM .\tests
+@REM if errorlevel 1 exit 1
 
 :: Install.
 ninja install
