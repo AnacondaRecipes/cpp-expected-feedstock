@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# if [[ "$OSTYPE" == "darwin"* && $(uname -m) == 'arm64' ]]; then
-#     # bump catch2 test suite to v2.13.9, which supports osx arm64.
-#     cp ${RECIPE_DIR}/catch.hpp tests/ || exit 1
-# fi
-
 # Isolate the build.
 mkdir -p Build
 cd Build || exit 1
@@ -19,8 +14,8 @@ cmake .. -G"Ninja" ${CMAKE_ARGS} \
 # Build.
 ninja || exit 1
 
-# # Run tests.
-# ./tests || exit 1
+# Run tests.
+./tl-expected-tests || exit 1
 
 # Build and install.
 ninja install || exit 1
