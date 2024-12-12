@@ -16,7 +16,7 @@ ninja
 if errorlevel 1 exit 1
 
 :: Run tests.
-.\tests.exe
+.\tl-expected-tests
 if errorlevel 1 exit 1
 
 :: Install.
